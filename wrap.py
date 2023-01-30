@@ -8,6 +8,9 @@ import keyboard
 import pyperclip
 
 
+DEFAULT_WRAP_WIDTH = 88
+
+
 def wrap_on_ctrl_c() -> None:
     """Wraps text when it enters the device's clipboard."""
     if platform.system() == "Darwin":  # macOS
@@ -24,7 +27,7 @@ def wrap_on_ctrl_c() -> None:
         print("Exiting.")
 
 
-def wrap_(text: str | None = None, width: int = 88) -> str | None:
+def wrap_(text: str | None = None, width: int = DEFAULT_WRAP_WIDTH) -> str | None:
     """Wraps text while preserving indentation.
 
     If text is None, the text in the device's clipboard is wrapped. If text is not None,
