@@ -27,13 +27,12 @@ def wrap_(text: str | None = None, width: int = 88) -> str | None:
         text_ = text
     if not text_:
         raise ValueError("Nothing to wrap.")
+    if "\r\n" in text_:
+        text_ = text_.replace("\r\n", "\n")
     first_line = text_.split("\n")[0]
     indent_n = len(first_line) - len(first_line.lstrip())
     indent = " " * indent_n
-    if "\r\n" in text_:
-        texts = text_.split("\r\n\r\n")
-    else:
-        texts = text_.split("\n\n")
+    texts = text_.split("\n\n")
     spaces_pattern = re.compile(r"(?<=\S)\s\s(?=\S)")
     for i, t in enumerate(texts):
         lines = wrap(
