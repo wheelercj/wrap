@@ -11,7 +11,7 @@ def wrap_on_ctrl_c() -> None:
     """Wraps text when it enters the device's clipboard."""
     while True:
         keyboard.wait("ctrl+c")
-        time.sleep(0.1)
+        time.sleep(0.05)
         pyperclip.copy(wrap_(pyperclip.paste()))
 
 
