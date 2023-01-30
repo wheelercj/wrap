@@ -15,10 +15,13 @@ def wrap_on_ctrl_c() -> None:
     else:
         kb_shortcut = "ctrl+c"
     print(f"Copy (with {kb_shortcut}) and paste to wrap text.")
-    while True:
-        keyboard.wait(kb_shortcut)
-        time.sleep(0.05)  # Wait for the clipboard to be updated.
-        pyperclip.copy(wrap_(pyperclip.paste()))
+    try:
+        while True:
+            keyboard.wait(kb_shortcut)
+            time.sleep(0.05)  # Wait for the clipboard to be updated.
+            pyperclip.copy(wrap_(pyperclip.paste()))
+    except KeyboardInterrupt:
+        print("Exiting.")
 
 
 def wrap_(text: str | None = None, width: int = 88) -> str | None:
