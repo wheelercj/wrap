@@ -1,5 +1,6 @@
 from .wrap_ import wrap_
 
+
 def test_wrap_():
     input_s = """\
         The module containing the token types. There is only one correct
@@ -14,5 +15,5 @@ def test_wrap_():
     assert wrap_(input_s) == expected
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     test_wrap_()
