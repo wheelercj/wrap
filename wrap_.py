@@ -1,3 +1,4 @@
+import platform
 import re
 import time
 from textwrap import dedent
@@ -9,9 +10,14 @@ import pyperclip
 
 def wrap_on_ctrl_c() -> None:
     """Wraps text when it enters the device's clipboard."""
+    if platform.system() == "Darwin":  # macOS
+        kb_shortcut = "cmd+c"
+    else:
+        kb_shortcut = "ctrl+c"
+    print(f"Copy (with {kb_shortcut}) and paste to wrap text.")
     while True:
-        keyboard.wait("ctrl+c")
-        time.sleep(0.05)
+        keyboard.wait(kb_shortcut)
+        time.sleep(0.05)  # Wait for the clipboard to be updated.
         pyperclip.copy(wrap_(pyperclip.paste()))
 
 
