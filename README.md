@@ -6,8 +6,8 @@ Quickly wrap text.
 
 ## usage
 
-1. Download wrap_.py.
+1. Download wrap.py.
 2. `pip install keyboard pyperclip`.
-3. Run the code with `py wrap_.py` or `python3 wrap_.py`.
+3. Run the code with `py wrap.py` or `python3 wrap.py`.
 4. Copy and paste text to wrap it!
-5. Press ctrl+c on the script when you're done wrapping.
+5. Press ctrl+c or cmd+c on the script when you're done wrapping.

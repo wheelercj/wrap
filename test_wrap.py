@@ -1,7 +1,7 @@
-from .wrap_ import wrap_
+from .wrap import wrap_
 
 
-def test_wrap_1():
+def test_1():
     input_s = """\
         The module containing the token types. There is only one correct
         argument. The only reason why the argument is required is
@@ -15,7 +15,7 @@ def test_wrap_1():
     assert wrap_(input_s) == expected
 
 
-def test_wrap_2():
+def test_2():
     input_s = """\
         Assumes the token is of the type that was chosen to split by, and that the
         split attributes exist."""
@@ -23,8 +23,3 @@ def test_wrap_2():
         Assumes the token is of the type that was chosen to split by, and that the split
         attributes exist."""
     assert wrap_(input_s) == expected
-
-
-if __name__ == "__main__":
-    test_wrap_1()
-    test_wrap_2()
