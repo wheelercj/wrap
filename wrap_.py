@@ -1,8 +1,18 @@
 import re
+import time
 from textwrap import dedent
 from textwrap import wrap
 
-import pyperclip  # https://pypi.org/project/pyperclip/
+import keyboard
+import pyperclip
+
+
+def wrap_on_ctrl_c() -> None:
+    """Wraps text when it enters the device's clipboard."""
+    while True:
+        keyboard.wait("ctrl+c")
+        time.sleep(0.1)
+        pyperclip.copy(wrap_(pyperclip.paste()))
 
 
 def wrap_(text: str | None = None, width: int = 88) -> str | None:
@@ -42,4 +52,4 @@ def wrap_(text: str | None = None, width: int = 88) -> str | None:
 
 
 if __name__ == "__main__":
-    wrap_()
+    wrap_on_ctrl_c()
